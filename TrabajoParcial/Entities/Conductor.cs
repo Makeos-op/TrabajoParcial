@@ -16,10 +16,10 @@ namespace TrabajoParcial.Entities
             Nacionalidad = persona.Nacionalidad;
             Telefono = persona.Telefono;
             Correo = persona.Correo;
-            Contraseña = persona.Contraseña
+            Contraseña = persona.Contraseña;
             vehiculos = new List<Vehiculo>();
             brevetesVigentes = new List<Brevete>();
-
+            puntuacion = 0;
         }
         public List<Vehiculo> vehiculos { get; set; }
         public List<Brevete> brevetesVigentes { get; set; }
