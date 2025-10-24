@@ -8,6 +8,7 @@ namespace TrabajoParcial.Entities
 {
     internal class Vehiculo
     {
+        public int dniConductor { get; set; }
         public string Matricula { get; set; }
         public string Modelo { get; set; }
         public string Marca { get; set; }

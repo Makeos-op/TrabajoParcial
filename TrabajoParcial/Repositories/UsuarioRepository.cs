@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TrabajoParcial.Entities;
@@ -43,6 +44,19 @@ namespace TrabajoParcial.Repositories
         public bool VerificarCuenta(int DNI, string contraseña)
         {
             return usuarios.Any(p=>p.DNI.Equals(DNI)&& p.Contraseña.Equals(contraseña));
+        }
+        public Usuario Buscar(int DNI)
+        {
+            Usuario usuario = usuarios.Find(i => i.DNI.Equals(DNI));
+            return usuario;
+        }
+        public void AgregarMonto(double monto, int DNI)
+        {
+            Buscar(DNI).Balance += monto;
+        }
+        public void QuitarMonto(double monto, int DNI)
+        {
+            Buscar(DNI).Balance -= monto;
         }
     }
 }

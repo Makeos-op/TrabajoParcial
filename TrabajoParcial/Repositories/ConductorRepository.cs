@@ -30,13 +30,16 @@ namespace TrabajoParcial.Repositories
         }
         public List<Vehiculo> MostrarVehiculos(int id)
         {
-            Conductor conductor = conductores.Find(i => i.DNI.Equals(id));
-            return conductor.vehiculos;
+            return Buscar(id).vehiculos;
         }
         public List<Brevete> MostrarBrevetes(int id)
         {
-            Conductor conductor = conductores.Find(i => i.DNI.Equals(id));
-            return conductor.brevetes;
+            return Buscar(id).brevetes;
+        }
+        public Conductor Buscar(int DNI)
+        {
+            Conductor conductor = conductores.Find(i => i.DNI.Equals(DNI));
+            return conductor;
         }
     }
 }

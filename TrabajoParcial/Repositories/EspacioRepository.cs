@@ -10,7 +10,7 @@ namespace TrabajoParcial.Repositories
     internal class EspacioRepository
     {
         private static List<Espacio> espaciosRegistrados = new List<Espacio>();
-        public bool Registro(Espacio espacio)
+        public bool Registro(int dni, Espacio espacio)
         {
             if (Duplicado(espacio.Id))
             {
@@ -22,6 +22,10 @@ namespace TrabajoParcial.Repositories
         public bool Duplicado(int id)
         {
             return espaciosRegistrados.Any(b => b.Id.Equals(id));
+        }
+        public Espacio Buscar(int id)
+        {
+            return espaciosRegistrados.Find(e => e.Id.Equals(id));
         }
     }
 }

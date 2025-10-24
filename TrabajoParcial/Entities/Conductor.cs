@@ -20,11 +20,8 @@ namespace TrabajoParcial.Entities
             Contraseña = persona.Contraseña;
             vehiculos = new List<Vehiculo>();
             brevetes = new List<Brevete>();
-            puntuacion = 0;
         }
         public List<Vehiculo> vehiculos { get; set; }
         public List<Brevete> brevetes { get; set; }
-        public int puntuacion{ get; set; }
-
     }
 }
