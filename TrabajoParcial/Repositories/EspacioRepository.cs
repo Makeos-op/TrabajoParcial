@@ -7,21 +7,21 @@ using TrabajoParcial.Entities;
 
 namespace TrabajoParcial.Repositories
 {
-    internal class BreveteRepository
+    internal class EspacioRepository
     {
-        private static List<Brevete> brevetesRegistados = new List<Brevete>();
-        public bool Registro(Brevete brevete)
+        private static List<Espacio> espaciosRegistrados = new List<Espacio>();
+        public bool Registro(Espacio espacio)
         {
-            if (Duplicado(brevete.Id))
+            if (Duplicado(espacio.Id))
             {
                 return false;
             }
-            brevetesRegistados.Add(brevete);
+            espaciosRegistrados.Add(espacio);
             return true;
         }
         public bool Duplicado(int id)
         {
-            return brevetesRegistados.Any(b => b.Id.Equals(id));
+            return espaciosRegistrados.Any(b => b.Id.Equals(id));
         }
     }
 }

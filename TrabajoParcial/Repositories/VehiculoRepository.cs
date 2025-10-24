@@ -9,19 +9,19 @@ namespace TrabajoParcial.Repositories
 {
     internal class VehiculoRepository
     {
-        private static List<Vehiculo> VehiculosRegistrados = new List<Vehiculo>();
-        public bool RegistroBrevete(Vehiculo vehiculo)
+        private static List<Vehiculo> vehiculosRegistrados = new List<Vehiculo>();
+        public bool Registro(Vehiculo vehiculo)
         {
             if (Duplicado(vehiculo.Matricula))
             {
                 return false;
             }
-            VehiculosRegistrados.Add(vehiculo);
+            vehiculosRegistrados.Add(vehiculo);
             return true;
         }
         public bool Duplicado(string id)
         {
-            return VehiculosRegistrados.Any(b => b.Matricula.Equals(id));
+            return vehiculosRegistrados.Any(b => b.Matricula.Equals(id));
         }
     }
 }

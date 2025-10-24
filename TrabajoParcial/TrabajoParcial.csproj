@@ -64,6 +64,8 @@
     <Compile Include="Repositories\ArrendadorRepository.cs" />
     <Compile Include="Repositories\BreveteRepository.cs" />
     <Compile Include="Repositories\ConductorRepository.cs" />
+    <Compile Include="Repositories\EspacioRepository.cs" />
+    <Compile Include="Repositories\ReservaRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Repositories\VehiculoRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

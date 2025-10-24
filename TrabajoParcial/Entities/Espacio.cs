@@ -12,6 +12,6 @@ namespace TrabajoParcial.Entities
         public int Id { get; set; }
         public double TarifaHora { get; set; }
         public string Ubicacion { get; set; }
-        public string Area { get; set; }    
+        public string Area { get; set; }
     }
 }
