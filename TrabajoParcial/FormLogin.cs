@@ -17,5 +17,20 @@ namespace TrabajoParcial
             InitializeComponent();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnregistrarse_Click(object sender, EventArgs e)
+        {
+            FormRegistrar form = new FormRegistrar();
+            form.Show();
+        }
+
+        private void btningresar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
