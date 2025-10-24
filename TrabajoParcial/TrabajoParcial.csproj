@@ -99,8 +99,10 @@
     <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Repositories\VehiculoRepository.cs" />
     <Compile Include="Servicies\ArrendadorService.cs" />
+    <Compile Include="Servicies\BreveteService.cs" />
     <Compile Include="Servicies\ConductorService.cs" />
     <Compile Include="Servicies\EspacioService.cs" />
+    <Compile Include="Servicies\ReservaService.cs" />
     <Compile Include="Servicies\UsuarioService.cs" />
     <Compile Include="Servicies\VehiculoService.cs" />
     <EmbeddedResource Include="FormArrendador.resx">
