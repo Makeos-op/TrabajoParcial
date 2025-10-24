@@ -23,5 +23,6 @@ namespace TrabajoParcial.Repositories
         {
             return brevetesRegistados.Any(b => b.Id.Equals(id));
         }
+        public 
     }
 }

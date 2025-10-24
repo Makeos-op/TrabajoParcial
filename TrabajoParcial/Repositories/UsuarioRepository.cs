@@ -58,5 +58,9 @@ namespace TrabajoParcial.Repositories
         {
             Buscar(DNI).Balance -= monto;
         }
+        public bool login(int dni,string contraseña)
+        {
+            return usuarios.Exists(i => i.DNI.Equals(dni) && i.Contraseña.Equals(contraseña));
+        }
     }
 }

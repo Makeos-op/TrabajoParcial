@@ -18,7 +18,7 @@ namespace TrabajoParcial.Servicies
         }
         public Conductor BuscarConductores(int DNI)
         {
-            return conductorRepository.BuscarConductores(DNI);
+            return conductorRepository.Buscar(DNI);
         }
         public bool Registro(Conductor conductor, Brevete brevete)
         {

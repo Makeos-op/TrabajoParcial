@@ -16,7 +16,7 @@ namespace TrabajoParcial.Repositories
             conductores = UsuarioRepository.MostrarConductores();
             return conductores;
         }
-        public Conductor BuscarConductores(int DNI)
+        public Conductor Buscar(int DNI)
         {
             return MostrarConductores().Find(i => i.DNI.Equals(DNI));
         }
@@ -25,6 +25,10 @@ namespace TrabajoParcial.Repositories
             var breveteRepo = new BreveteRepository(); //Llamar Repo Brevetes
             conductor.TipoUsuario = "Conductor";
             bool BreveteRegistro = breveteRepo.Registro(brevete);
+            if (!BreveteRegistro)
+            {
+                return false;
+            }
             conductor.brevetes.Add(brevete);
             return new UsuarioRepository().RegistrarUsuario(conductor);
         }
@@ -36,10 +40,7 @@ namespace TrabajoParcial.Repositories
         {
             return Buscar(id).brevetes;
         }
-        public Conductor Buscar(int DNI)
-        {
-            Conductor conductor = conductores.Find(i => i.DNI.Equals(DNI));
-            return conductor;
-        }
+        //Reportes
+
     }
 }

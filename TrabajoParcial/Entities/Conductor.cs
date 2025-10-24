@@ -11,7 +11,7 @@ namespace TrabajoParcial.Entities
         public Conductor(Usuario persona)
         {
             DNI = persona.DNI;
-            Nombre = persona.Nombre;
+            Nombre = persona.Nombre;    
             Apellidos = persona.Apellidos;
             Edad = persona.Edad;
             Nacionalidad = persona.Nacionalidad;

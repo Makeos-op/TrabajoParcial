@@ -15,7 +15,7 @@ namespace TrabajoParcial.Repositories
         {
             return UsuarioRepository.MostrarArrendadores();
         }
-        public Arrendador BuscarArrendadores(int DNI)
+        public Arrendador Buscar(int DNI)
         {
             return MostrarArrendadores().Find(i => i.DNI.Equals(DNI));
         }
@@ -24,17 +24,16 @@ namespace TrabajoParcial.Repositories
             var espacioRepo = new EspacioRepository();
             arrendador.TipoUsuario = "Conductor";
             bool EspacioRegistro = espacioRepo.Registro(arrendador.DNI,espacio);
+            if (!EspacioRegistro)
+            {
+                return false;
+            }
             arrendador.Espacios.Add(espacio);
             return new UsuarioRepository().RegistrarUsuario(arrendador);    
         }
         public List<Espacio> MostrarEspacios(int id)
         {
             return Buscar(id).Espacios;
-        }
-        public Arrendador Buscar(int DNI)
-        {
-            Arrendador arrendador = arrendadores.Find(i => i.DNI.Equals(DNI));
-            return arrendador;
         }
     }
 }
