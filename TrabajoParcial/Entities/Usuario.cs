@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TrabajoParcial.Entities
 {
-    internal class Persona
+    internal class Usuario
     {
-        public Persona() { 
+        public Usuario() { 
         Balance = 0;
         }
         public int DNI { get; set; }
@@ -20,5 +20,6 @@ namespace TrabajoParcial.Entities
         public int Telefono { get; set; }
         public double Balance { get; set; }
         public string Contraseña { get; set; }
+        public string TipoUsuario {  get; set; }
     }
 }

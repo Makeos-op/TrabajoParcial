@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace TrabajoParcial.Entities
 {
-    internal class Arrendador:Persona
+    internal class Arrendador:Usuario
     {
-        public Arrendador(Persona persona)
+        public Arrendador(Usuario persona)
         {
             DNI = persona.DNI;
             Nombre = persona.Nombre;

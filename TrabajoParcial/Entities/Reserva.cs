@@ -14,6 +14,7 @@ namespace TrabajoParcial.Entities
             matricula = vehiculo.Matricula;
             idUbicacion = espacio.Id;
             tarifa = espacio.TarifaHora;
+            Monto_horas = espacio.TarifaHora * Cantidad_Horas;
         }
         public string matricula { get; set; }
         public int idUbicacion { get; set; }
