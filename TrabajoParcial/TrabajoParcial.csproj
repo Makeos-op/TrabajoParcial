@@ -65,6 +65,12 @@
     <Compile Include="FormConductor.Designer.cs">
       <DependentUpon>FormConductor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEspacio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEspacio.Designer.cs">
+      <DependentUpon>FormEspacio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,12 @@
     <Compile Include="FormRegistrar.Designer.cs">
       <DependentUpon>FormRegistrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVehiculo.Designer.cs">
+      <DependentUpon>FormVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ArrendadorRepository.cs" />
@@ -86,14 +98,28 @@
     <Compile Include="Repositories\ReservaRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Repositories\VehiculoRepository.cs" />
+    <Compile Include="Servicies\ArrendadorService.cs" />
+    <Compile Include="Servicies\ConductorService.cs" />
+    <Compile Include="Servicies\EspacioService.cs" />
+    <Compile Include="Servicies\UsuarioService.cs" />
+    <Compile Include="Servicies\VehiculoService.cs" />
+    <EmbeddedResource Include="FormArrendador.resx">
+      <DependentUpon>FormArrendador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConductor.resx">
       <DependentUpon>FormConductor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEspacio.resx">
+      <DependentUpon>FormEspacio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistrar.resx">
       <DependentUpon>FormRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVehiculo.resx">
+      <DependentUpon>FormVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,8 +143,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
