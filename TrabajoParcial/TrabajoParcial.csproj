@@ -59,6 +59,12 @@
     <Compile Include="FormArrendador.Designer.cs">
       <DependentUpon>FormArrendador.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBrevete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBrevete.Designer.cs">
+      <DependentUpon>FormBrevete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConductor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="FormEspacio.Designer.cs">
       <DependentUpon>FormEspacio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEspacioArrendador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEspacioArrendador.Designer.cs">
+      <DependentUpon>FormEspacioArrendador.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -108,11 +120,17 @@
     <EmbeddedResource Include="FormArrendador.resx">
       <DependentUpon>FormArrendador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBrevete.resx">
+      <DependentUpon>FormBrevete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConductor.resx">
       <DependentUpon>FormConductor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEspacio.resx">
       <DependentUpon>FormEspacio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEspacioArrendador.resx">
+      <DependentUpon>FormEspacioArrendador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
