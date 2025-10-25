@@ -46,6 +46,7 @@ namespace TrabajoParcial
 
             switch (tipoUsuario)
             {
+                //Arrendador,Conductor
                 case "Arrendador":
                     FormArrendador formA = new FormArrendador();
                     formA.Show();

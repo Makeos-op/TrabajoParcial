@@ -203,6 +203,9 @@
             // cmbtipoususario
             // 
             this.cmbtipoususario.FormattingEnabled = true;
+            this.cmbtipoususario.Items.AddRange(new object[] {
+            "Arrendador",
+            "Conductor"});
             this.cmbtipoususario.Location = new System.Drawing.Point(289, 203);
             this.cmbtipoususario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbtipoususario.Name = "cmbtipoususario";
