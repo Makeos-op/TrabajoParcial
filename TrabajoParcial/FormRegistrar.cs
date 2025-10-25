@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoParcial.Entities;
+using TrabajoParcial.Servicies;
 
 namespace TrabajoParcial
 {
     public partial class FormRegistrar : Form
     {
+        ArrendadorService arrendadorService= new ArrendadorService();
+        ConductorService conductorService= new ConductorService();
         public FormRegistrar()
         {
             InitializeComponent();
@@ -87,11 +91,45 @@ namespace TrabajoParcial
                                 MessageBoxIcon.Warning);
                 return;
             }
+            Usuario usuario = new Usuario();
+            {
+                usuario.Nombre = nombres;
+                usuario.Apellidos = apellidos;
+                usuario.Edad= edad;
+                usuario.Nacionalidad = nacionalidad;
+                usuario.Correo = correo;
+                usuario.Telefono = telefono;
+                usuario.Contraseña = contrasena;
+                usuario.TipoUsuario = cmbtipoususario.Text;
+            }
+            switch (cmbtipoususario.Text)
+            {
+                case "Arrendador":
+                    Arrendador arrendador = new Arrendador(usuario);
+                    //Aqui Falta
+                    Espacio espacio = new Espacio();
+                    bool registroA = arrendadorService.Registro(arrendador, espacio);
+                    if (!registroA)
+                    {
+                        MessageBox.Show("El Arrendador ya fue registrado.","Error de validación",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        return;
+                    }
+                    break;
 
-            MessageBox.Show("Registro exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                case "Conductor":
+                    Conductor conductor = new Conductor(usuario);
+                    //Aqui Falta
+                    Brevete brevete = new Brevete();
+                    bool registroB = conductorService.Registro(conductor, brevete);
+                    if (!registroB)
+                    {
+                        MessageBox.Show("El Conductor ya fue registrado.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    break;
+            }
 
-            FormLogin formLogin = new FormLogin();
-            formLogin.Show();
+        MessageBox.Show("Registro exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
         }

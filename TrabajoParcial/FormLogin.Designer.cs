@@ -38,8 +38,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnregistrarse = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbtipousuariologin = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -102,7 +100,7 @@
             // 
             // btningresar
             // 
-            this.btningresar.Location = new System.Drawing.Point(313, 257);
+            this.btningresar.Location = new System.Drawing.Point(304, 218);
             this.btningresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btningresar.Name = "btningresar";
             this.btningresar.Size = new System.Drawing.Size(139, 28);
@@ -113,7 +111,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(313, 347);
+            this.button2.Location = new System.Drawing.Point(304, 323);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 28);
@@ -124,7 +122,7 @@
             // 
             // btnregistrarse
             // 
-            this.btnregistrarse.Location = new System.Drawing.Point(463, 296);
+            this.btnregistrarse.Location = new System.Drawing.Point(404, 272);
             this.btnregistrarse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnregistrarse.Name = "btnregistrarse";
             this.btnregistrarse.Size = new System.Drawing.Size(133, 28);
@@ -136,41 +134,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(153, 302);
+            this.label5.Location = new System.Drawing.Point(169, 278);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(216, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "¿No tienes cuenta? Crea una ahora";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 217);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 16);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "TIPO DE USUARIO:";
-            // 
-            // cmbtipousuariologin
-            // 
-            this.cmbtipousuariologin.FormattingEnabled = true;
-            this.cmbtipousuariologin.Items.AddRange(new object[] {
-            "Arrendador",
-            "Conductor"});
-            this.cmbtipousuariologin.Location = new System.Drawing.Point(354, 214);
-            this.cmbtipousuariologin.Name = "cmbtipousuariologin";
-            this.cmbtipousuariologin.Size = new System.Drawing.Size(229, 24);
-            this.cmbtipousuariologin.TabIndex = 12;
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 395);
-            this.Controls.Add(this.cmbtipousuariologin);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnregistrarse);
             this.Controls.Add(this.button2);
@@ -201,7 +176,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnregistrarse;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbtipousuariologin;
     }
 }

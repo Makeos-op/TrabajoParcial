@@ -47,5 +47,9 @@ namespace TrabajoParcial.Servicies
         {
             usuarioRepository.QuitarMonto(monto, DNI);
         }
+        public bool login(int dni, string contraseña)
+        {
+            return usuarioRepository.login(dni, contraseña);
+        }
     }
 }

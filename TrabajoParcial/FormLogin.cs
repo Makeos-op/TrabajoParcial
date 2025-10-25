@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoParcial.Servicies;
 
 namespace TrabajoParcial
 {
     public partial class FormLogin : Form
     {
+        private UsuarioService usuarioService = new UsuarioService();
         public FormLogin()
         {
             InitializeComponent();
@@ -41,31 +43,24 @@ namespace TrabajoParcial
                                 MessageBoxIcon.Warning);
                 return;
             }
-
-            string tipoUsuario = cmbtipousuariologin.SelectedItem?.ToString();
-
-            switch (tipoUsuario)
+            bool login = usuarioService.login(int.Parse(usuario), contraseña);
+            if (login)
             {
-                //Arrendador,Conductor
-                case "Arrendador":
-                    FormArrendador formA = new FormArrendador();
-                    formA.Show();
-                    break;
+                switch (usuarioService.Buscar(int.Parse(usuario)).TipoUsuario)
+                {
+                    case "Arrendador":
+                        FormArrendador formA = new FormArrendador();
+                        formA.Show();
+                        break;
 
-                case "Conductor":
-                    FormConductor formC = new FormConductor();
-                    formC.Show();
-                    break;
-
-                default:
-                    MessageBox.Show("Por favor selecciona un tipo de usuario.",
-                                    "Advertencia",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                    break;
+                    case "Conductor":
+                        FormConductor formC = new FormConductor();
+                        formC.Show();
+                        break;
+                }
+                return;
             }
-
+            MessageBox.Show("No se pudo registrar el usuario","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
         }
-
     }
 }
