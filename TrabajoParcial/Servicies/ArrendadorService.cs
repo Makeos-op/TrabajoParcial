@@ -10,8 +10,12 @@ namespace TrabajoParcial.Servicies
 {
     internal class ArrendadorService
     {
-        ArrendadorRepository arrendadorRepository = new ArrendadorRepository();
-
+ 
+        ArrendadorRepository arrendadorRepository;
+        public ArrendadorService(UsuarioRepository usuarioRepository)
+        {
+            arrendadorRepository = new ArrendadorRepository(usuarioRepository);
+        }
         public List<Arrendador> MostrarArrendadores()
         {
             return arrendadorRepository.MostrarArrendadores();

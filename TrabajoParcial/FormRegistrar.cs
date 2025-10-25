@@ -14,10 +14,11 @@ namespace TrabajoParcial
 {
     public partial class FormRegistrar : Form
     {
-        ArrendadorService arrendadorService= new ArrendadorService();
-        ConductorService conductorService= new ConductorService();
+        ConductorService conductorService = new ConductorService();
+        ArrendadorService arrendadorService;
         internal FormRegistrar(UsuarioService usuarioService)
         {
+            arrendadorService = new ArrendadorService(usuarioService.usuarioRepository);
             InitializeComponent();
         }
         private void button1_Click_1(object sender, EventArgs e)

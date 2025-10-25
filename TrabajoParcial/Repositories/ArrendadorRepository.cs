@@ -9,27 +9,31 @@ namespace TrabajoParcial.Repositories
 {
     internal class ArrendadorRepository
     {
+        private UsuarioRepository usuarioRepository;
         private List<Arrendador> arrendadores = UsuarioRepository.MostrarArrendadores();
-        //Usuarios Arrendadores como lista (Tipo Arrendador == objeto Arrendador)
         public List<Arrendador> MostrarArrendadores()
         {
             return UsuarioRepository.MostrarArrendadores();
         }
+        public ArrendadorRepository(UsuarioRepository usuarioRepository)
+        {
+            this.usuarioRepository = usuarioRepository;
+        }
         public Arrendador Buscar(int DNI)
         {
-            return MostrarArrendadores().Find(i => i.DNI.Equals(DNI));
+            return arrendadores.Find(i => i.DNI.Equals(DNI));
         }
         public bool Registro(Arrendador arrendador, Espacio espacio)
         {
             var espacioRepo = new EspacioRepository();
-            arrendador.TipoUsuario = "Conductor";
+            arrendador.TipoUsuario = "Arrendador";
             bool EspacioRegistro = espacioRepo.Registro(arrendador.DNI,espacio);
             if (!EspacioRegistro)
             {
                 return false;
             }
             arrendador.Espacios.Add(espacio);
-            return UsuarioRepository().RegistrarUsuario(arrendador);    
+            return usuarioRepository.RegistrarUsuario(arrendador);    
         }
         public List<Espacio> MostrarEspacios(int id)
         {

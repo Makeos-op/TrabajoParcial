@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,11 @@ namespace TrabajoParcial.Servicies
 {
     internal class UsuarioService
     {
-        private UsuarioRepository usuarioRepository = new UsuarioRepository();
+        public UsuarioRepository usuarioRepository { get; }  
+        public UsuarioService()
+        {
+            usuarioRepository = new UsuarioRepository();
+        }
 
         public bool RegistrarUsuario(Usuario usuario)
         {

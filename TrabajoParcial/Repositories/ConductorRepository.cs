@@ -9,6 +9,7 @@ namespace TrabajoParcial.Repositories
 {
     internal class ConductorRepository
     {
+        private UsuarioRepository usuarioRepository;
         private List<Conductor> conductores = UsuarioRepository.MostrarConductores();
         //Usuarios Conductores como lista (Tipo conductor == objeto conductor)
         public List<Conductor> MostrarConductores()
@@ -30,7 +31,7 @@ namespace TrabajoParcial.Repositories
                 return false;
             }
             conductor.brevetes.Add(brevete);
-            return UsuarioRepository().RegistrarUsuario(conductor);
+            return usuarioRepository.RegistrarUsuario(conductor);
         }
         public List<Vehiculo> MostrarVehiculos(int id)
         {

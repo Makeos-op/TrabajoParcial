@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoParcial.Entities;
+using TrabajoParcial.Repositories;
 using TrabajoParcial.Servicies;
 
 namespace TrabajoParcial
@@ -15,8 +16,11 @@ namespace TrabajoParcial
     public partial class FormLogin : Form
     {
         private UsuarioService usuarioService = new UsuarioService();
+        private ArrendadorService arrendadorService;
+        private ConductorService conductorService;
         public FormLogin()
         {
+            arrendadorService = new ArrendadorService(usuarioService.usuarioRepository);
             InitializeComponent();
         }
 
@@ -53,7 +57,7 @@ namespace TrabajoParcial
                 return;
             }
             bool login = usuarioService.login(usuarioId, contraseña);
-            if (!login)
+            if (login)
             {
                 Usuario usuarioEncontrado = usuarioService.Buscar(usuarioId);
 
@@ -65,21 +69,25 @@ namespace TrabajoParcial
                                     MessageBoxIcon.Error);
                     return;
                 }
-                switch (usuarioService.Buscar(usuarioEncontrado.DNI).TipoUsuario)
+                string tipo = usuarioEncontrado.TipoUsuario.Trim().ToLower();
+                if (tipo == "Arrendador")
                 {
-                    case "Arrendador":
-                        FormArrendador formA = new FormArrendador();
-                        formA.Show();
-                        break;
-
-                    case "Conductor":
-                        FormConductor formC = new FormConductor();
-                        formC.Show();
-                        break;
+                    FormArrendador formA = new FormArrendador();
+                    formA.Show();
                 }
-                return;
+                else if (tipo == "Conductor")
+                {
+                    FormConductor formC = new FormConductor();
+                    formC.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Tipo de usuario desconocido: {usuarioEncontrado.TipoUsuario}",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
-            MessageBox.Show("No se pudo logear el usuario","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
         }
     }
 }
