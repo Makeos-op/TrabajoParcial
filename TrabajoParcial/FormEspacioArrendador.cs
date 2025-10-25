@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoParcial.Entities;
 using static System.Windows.Forms.MonthCalendar;
 
 namespace TrabajoParcial
 {
     public partial class FormEspacioArrendador : Form
     {
-        public FormEspacioArrendador()
+        private Espacio _espacio;
+        internal FormEspacioArrendador(Espacio espacio)
         {
             InitializeComponent();
+            _espacio = espacio;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,7 +42,6 @@ namespace TrabajoParcial
 
             int id;
             double tarifa;
-            double area;
 
             if (!int.TryParse(idText, out id))
             {
@@ -59,15 +61,6 @@ namespace TrabajoParcial
                 return;
             }
 
-            if (!double.TryParse(areaText, out area))
-            {
-                MessageBox.Show("El área debe ser un número válido.",
-                                "Error de formato",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                return;
-            }
-
             if (tarifa <= 0)
             {
                 MessageBox.Show("La tarifa por hora debe ser mayor a 0.",
@@ -77,19 +70,11 @@ namespace TrabajoParcial
                 return;
             }
 
-            if (area <= 0)
-            {
-                MessageBox.Show("El área debe ser mayor a 0.",
-                                "Valor inválido",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
-            }
-
-            MessageBox.Show("Espacio registrado correctamente",
-                            "Registro exitoso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+            _espacio.Id = id;
+            _espacio.Area = areaText;
+            _espacio.Ubicacion = ubicacion;
+            _espacio.TarifaHora= tarifa;
+            this.Close();
         }
     }
 }

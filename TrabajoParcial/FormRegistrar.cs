@@ -16,7 +16,7 @@ namespace TrabajoParcial
     {
         ArrendadorService arrendadorService= new ArrendadorService();
         ConductorService conductorService= new ConductorService();
-        public FormRegistrar()
+        internal FormRegistrar(UsuarioService usuarioService)
         {
             InitializeComponent();
         }
@@ -105,33 +105,56 @@ namespace TrabajoParcial
             switch (cmbtipoususario.Text)
             {
                 case "Arrendador":
-                    Arrendador arrendador = new Arrendador(usuario);
-                    //Aqui Falta
-                    Espacio espacio = new Espacio();
-                    bool registroA = arrendadorService.Registro(arrendador, espacio);
-                    if (!registroA)
                     {
-                        MessageBox.Show("El Arrendador ya fue registrado.","Error de validación",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                        return;
+                        Arrendador arrendador = new Arrendador(usuario);
+                        Espacio espacio = new Espacio();
+                        FormEspacioArrendador formEspacio = new FormEspacioArrendador(espacio);
+                        formEspacio.FormClosed += (s, args) =>
+                        {
+                            bool registroA = arrendadorService.Registro(arrendador, espacio);
+                            if (!registroA)
+                            {
+                                MessageBox.Show("El Arrendador ya fue registrado.",
+                                                "Error de validación",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                                return;
+                            }
+                            MessageBox.Show("Registro exitoso",
+                                            "Éxito",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+                            this.Close();
+                        };
+                        formEspacio.Show();
+                        break;
                     }
-                    break;
-
                 case "Conductor":
-                    Conductor conductor = new Conductor(usuario);
-                    //Aqui Falta
-                    Brevete brevete = new Brevete();
-                    bool registroB = conductorService.Registro(conductor, brevete);
-                    if (!registroB)
                     {
-                        MessageBox.Show("El Conductor ya fue registrado.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        Conductor conductor = new Conductor(usuario);
+                        Brevete brevete = new Brevete();
+                        FormBrevete formBrevete = new FormBrevete(brevete);
+                        formBrevete.FormClosed += (s, args) =>
+                        {
+                            bool registroB = conductorService.Registro(conductor, brevete);
+                            if (!registroB)
+                            {
+                                MessageBox.Show("El Conductor ya fue registrado.",
+                                                "Error de validación",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Warning);
+                                return;
+                            }
+                            MessageBox.Show("Registro exitoso",
+                                            "Éxito",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+                            this.Close();
+                        };
+                        formBrevete.Show();
+                        break;
                     }
-                    break;
             }
-
-        MessageBox.Show("Registro exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.Close();
         }
     }
 }

@@ -7,19 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoParcial.Entities;
 
 namespace TrabajoParcial
 {
     public partial class FormBrevete : Form
     {
-        public FormBrevete()
+        private Brevete _brevete;
+        internal FormBrevete(Brevete brevete)
         {
             InitializeComponent();
+            _brevete = brevete;
         }
 
         private void btnregistrarbrevete_Click(object sender, EventArgs e)
         {
-            // --- Obtener valores de los TextBox ---
             string idText = txtidbrevete.Text.Trim();
             string categoria = txtcategoriabrevete.Text.Trim();
             string fechaEmisionText = txtcategoriabrevete.Text.Trim();
@@ -85,12 +87,12 @@ namespace TrabajoParcial
                                 MessageBoxIcon.Warning);
                 return;
             }
-
-            MessageBox.Show("Brevet registrado correctamente ",
-                            "Registro exitoso",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
+            _brevete.Id = id;
+            _brevete.Categoria = categoria;
+            _brevete.FechaEmisional = fechaEmision;
+            _brevete.FechaCaducidad = fechaCaducidad;
+            this.Close();
         }
+
     }
 }

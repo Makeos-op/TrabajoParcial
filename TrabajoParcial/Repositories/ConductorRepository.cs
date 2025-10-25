@@ -30,7 +30,7 @@ namespace TrabajoParcial.Repositories
                 return false;
             }
             conductor.brevetes.Add(brevete);
-            return new UsuarioRepository().RegistrarUsuario(conductor);
+            return UsuarioRepository().RegistrarUsuario(conductor);
         }
         public List<Vehiculo> MostrarVehiculos(int id)
         {

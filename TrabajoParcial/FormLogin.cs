@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoParcial.Entities;
 using TrabajoParcial.Servicies;
 
 namespace TrabajoParcial
@@ -26,7 +27,7 @@ namespace TrabajoParcial
 
         private void btnregistrarse_Click(object sender, EventArgs e)
         {
-            FormRegistrar form = new FormRegistrar();
+            FormRegistrar form = new FormRegistrar(usuarioService);
             form.Show();
         }
 
@@ -43,10 +44,28 @@ namespace TrabajoParcial
                                 MessageBoxIcon.Warning);
                 return;
             }
-            bool login = usuarioService.login(int.Parse(usuario), contraseña);
-            if (login)
+            if (!int.TryParse(usuario, out int usuarioId))
             {
-                switch (usuarioService.Buscar(int.Parse(usuario)).TipoUsuario)
+                MessageBox.Show("El campo usuario debe ser un número entero (por ejemplo, DNI o ID).",
+                                "Error de formato",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+            bool login = usuarioService.login(usuarioId, contraseña);
+            if (!login)
+            {
+                Usuario usuarioEncontrado = usuarioService.Buscar(usuarioId);
+
+                if (usuarioEncontrado == null)
+                {
+                    MessageBox.Show("Error: el usuario no fue encontrado en la base de datos.",
+                                    "Error interno",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                    return;
+                }
+                switch (usuarioService.Buscar(usuarioEncontrado.DNI).TipoUsuario)
                 {
                     case "Arrendador":
                         FormArrendador formA = new FormArrendador();
@@ -60,7 +79,7 @@ namespace TrabajoParcial
                 }
                 return;
             }
-            MessageBox.Show("No se pudo registrar el usuario","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            MessageBox.Show("No se pudo logear el usuario","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Warning);
         }
     }
 }

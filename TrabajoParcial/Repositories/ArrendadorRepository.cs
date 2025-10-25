@@ -29,7 +29,7 @@ namespace TrabajoParcial.Repositories
                 return false;
             }
             arrendador.Espacios.Add(espacio);
-            return new UsuarioRepository().RegistrarUsuario(arrendador);    
+            return UsuarioRepository().RegistrarUsuario(arrendador);    
         }
         public List<Espacio> MostrarEspacios(int id)
         {
